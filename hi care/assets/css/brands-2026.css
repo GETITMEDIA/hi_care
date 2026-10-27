@@ -1,0 +1,41 @@
+/* Brands page: even logo sizing for the scrolling rails and the logo wall.
+   Logos are trimmed copies in assets/img/brand/trim/. Loads after premium-2026.css. */
+
+.top-b { padding: clamp(56px, 6vw, 96px) 0 !important; }
+.brands-section > h2 { font-size: clamp(3rem, 1.6rem + 2.6vw, 5.4rem); }
+.brands-section > p { margin-bottom: 32px; }
+
+/* ---------- scrolling rails (removed) ---------- */
+.p-marquee--logos { display: none !important; }
+
+/* ---------- logo wall ---------- */
+.brands-logos { gap: 16px; margin-top: 36px; }
+.brand-item {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  padding: 0 !important;
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 16px;
+  background: #fff !important;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, .35);
+}
+.brand-item img {
+  position: static !important;
+  inset: auto !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 68% !important;
+  max-height: 46% !important;
+  object-fit: contain !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  filter: grayscale(1) contrast(1.05);
+  transition: filter var(--p-t), transform var(--p-t) var(--p-ease-out);
+}
+.brand-item:hover { transform: translateY(-5px); border-color: var(--p-red); box-shadow: 0 20px 40px rgba(0, 0, 0, .45), 0 0 0 2px rgba(255, 43, 43, .35); }
+.brand-item:hover img { filter: none; transform: scale(1.06); }
+
+@media (max-width: 575px) {
+  .brands-logos { gap: 10px; }
+}

@@ -1,0 +1,520 @@
+/* ==========================================================================
+   HI-TECH AUTOZONE — CAR ESSENTIALS 2026 ("Midnight Performance")
+   Dedicated styling layer for caressentials.html.
+   Inherits design tokens and motion from premium-2026.css.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   01. PAGE ROOT & HERO ENHANCEMENTS
+   -------------------------------------------------------------------------- */
+.essentials-page-wrapper {
+  background: var(--p-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero Badge & Subtitle */
+.breadcrumb__content--badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 18px;
+  margin-bottom: 18px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  font-stretch: 115%;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--p-red);
+  background: rgba(255, 43, 43, 0.08);
+  border: 1px solid rgba(255, 43, 43, 0.28);
+  border-radius: var(--p-r-pill);
+  box-shadow: 0 0 25px rgba(255, 43, 43, 0.15);
+}
+
+.breadcrumb__content--badge .badge-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--p-red);
+  box-shadow: 0 0 12px var(--p-red);
+  animation: pDotPulse 2s infinite ease-in-out;
+}
+
+@keyframes pDotPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+.breadcrumb__content--desc {
+  max-width: 68ch;
+  margin-top: 18px;
+  margin-bottom: 26px;
+  font-size: clamp(1.5rem, 1.2rem + 0.5vw, 1.85rem);
+  line-height: 1.7;
+  color: var(--p-text-2);
+}
+
+/* --------------------------------------------------------------------------
+   02. STICKY QUICK-JUMP FILTER RAIL
+   -------------------------------------------------------------------------- */
+.essentials-jump-nav {
+  position: sticky;
+  top: 76px;
+  z-index: 90;
+  padding: 14px 0;
+  background: rgba(7, 8, 10, 0.82);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--p-line);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  transition: top var(--p-t) var(--p-ease);
+}
+
+.essentials-jump-track {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 4px 6px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 43, 43, 0.4) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.essentials-jump-track::-webkit-scrollbar {
+  height: 4px;
+}
+.essentials-jump-track::-webkit-scrollbar-thumb {
+  background: rgba(255, 43, 43, 0.4);
+  border-radius: 4px;
+}
+
+.jump-pill {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-stretch: 110%;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--p-text-2);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--p-line);
+  border-radius: var(--p-r-pill);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all var(--p-t) var(--p-ease);
+}
+
+.jump-pill .pill-num {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--p-red);
+  opacity: 0.9;
+}
+
+.jump-pill:hover,
+.jump-pill.active {
+  color: #fff;
+  background: rgba(255, 43, 43, 0.12);
+  border-color: rgba(255, 43, 43, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 43, 43, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   03. TRUST PILLARS BAND
+   -------------------------------------------------------------------------- */
+.essentials-pillars-sec {
+  padding: clamp(36px, 4vw, 56px) 0 0;
+  position: relative;
+  z-index: 2;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.pillar-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 24px;
+  background: linear-gradient(180deg, #12151b 0%, #0b0d10 100%);
+  border: 1px solid var(--p-line);
+  border-radius: var(--p-r-lg);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+  transition: transform var(--p-t) var(--p-ease), border-color var(--p-t) var(--p-ease), box-shadow var(--p-t) var(--p-ease);
+}
+
+.pillar-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 43, 43, 0.35);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 43, 43, 0.1);
+}
+
+.pillar-icon-box {
+  flex: 0 0 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 43, 43, 0.08);
+  border: 1px solid rgba(255, 43, 43, 0.25);
+  color: var(--p-red);
+}
+
+.pillar-icon-box svg {
+  width: 24px;
+  height: 24px;
+}
+
+.pillar-title {
+  margin: 0 0 4px;
+  font-size: 1.55rem;
+  font-weight: 800;
+  font-stretch: 115%;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--p-text);
+}
+
+.pillar-desc {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.45;
+  color: var(--p-text-3);
+}
+
+/* --------------------------------------------------------------------------
+   04. SHOWCASE CARDS CUSTOMIZATIONS
+   -------------------------------------------------------------------------- */
+.essentials-catalog-sec {
+  padding: clamp(50px, 6vw, 90px) 0 clamp(70px, 8vw, 120px);
+}
+
+.section-block {
+  scroll-margin-top: 140px;
+}
+
+/* Card Kicker Tag */
+.p-card-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  margin-bottom: 14px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  font-stretch: 115%;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--p-red);
+  background: rgba(255, 43, 43, 0.08);
+  border: 1px solid rgba(255, 43, 43, 0.25);
+  border-radius: var(--p-r-pill);
+}
+
+.p-kicker-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--p-red);
+  box-shadow: 0 0 8px var(--p-red);
+}
+
+/* Specs & Feature Highlights Grid */
+.p-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 10px;
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none;
+}
+
+.p-spec-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 11px 14px;
+  font-size: 1.35rem;
+  line-height: 1.45;
+  color: var(--p-text-2);
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--p-line);
+  border-radius: var(--p-r-sm);
+  transition: all var(--p-t) var(--p-ease);
+}
+
+.p-spec-item:hover {
+  background: rgba(255, 43, 43, 0.05);
+  border-color: rgba(255, 43, 43, 0.3);
+  color: #fff;
+  transform: translateX(3px);
+}
+
+.p-spec-item .p-bullet-diamond {
+  flex: 0 0 8px;
+  height: 8px;
+  margin-top: 5px;
+  background: var(--p-red);
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px var(--p-red);
+}
+
+/* Card Button Group */
+.p-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+/* WhatsApp Direct Button */
+.p-btn-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 14px 26px;
+  font-family: var(--p-font);
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-stretch: 112%;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #25d366;
+  background: rgba(37, 211, 102, 0.07);
+  border: 1px solid rgba(37, 211, 102, 0.3);
+  border-radius: var(--p-r-pill);
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.12);
+  transition: all var(--p-t) var(--p-ease);
+}
+
+.p-btn-wa svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+  transition: transform var(--p-t) var(--p-ease);
+}
+
+.p-btn-wa:hover {
+  background: #25d366;
+  color: #050608;
+  border-color: #25d366;
+  box-shadow: 0 10px 32px rgba(37, 211, 102, 0.35);
+  transform: translateY(-2px);
+}
+
+.p-btn-wa:hover svg {
+  transform: scale(1.15) rotate(-6deg);
+}
+
+/* --------------------------------------------------------------------------
+   05. PNG CUTOUT ENHANCED STUDIO STAGE
+   -------------------------------------------------------------------------- */
+.section-block .image.p-plate {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.12) 0%, rgba(20, 24, 32, 0.8) 75%),
+    linear-gradient(180deg, #171b22 0%, #0d0f14 100%) !important;
+  border: 1px solid var(--p-line);
+}
+
+.section-block .image.p-plate img {
+  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 25px rgba(255, 43, 43, 0.15));
+  padding: 8% !important;
+  transition: transform 1.2s var(--p-ease-out), filter 0.6s var(--p-ease);
+}
+
+.section-block:hover .image.p-plate img {
+  transform: scale(1.08) translateY(-4px) !important;
+  filter: drop-shadow(0 35px 45px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 35px rgba(255, 43, 43, 0.3));
+}
+
+/* --------------------------------------------------------------------------
+   06. BOTTOM VISIT SHOWROOM CTA BANNER
+   -------------------------------------------------------------------------- */
+.p-essentials-cta {
+  position: relative;
+  margin-top: clamp(40px, 6vw, 80px);
+  padding: clamp(48px, 6vw, 84px) clamp(24px, 5vw, 64px);
+  background:
+    radial-gradient(80% 120% at 50% 0%, rgba(255, 43, 43, 0.22) 0%, transparent 70%),
+    linear-gradient(180deg, #13171e 0%, #090a0d 100%);
+  border: 1px solid rgba(255, 43, 43, 0.35);
+  border-radius: var(--p-r-xl);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.65), 0 0 60px rgba(255, 43, 43, 0.12);
+  text-align: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.p-essentials-cta::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  transform: translateX(-50%);
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 43, 43, 0.18), transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.p-essentials-cta--inner {
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.p-essentials-cta--badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  margin-bottom: 20px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--p-red);
+  background: rgba(255, 43, 43, 0.08);
+  border: 1px solid rgba(255, 43, 43, 0.28);
+  border-radius: var(--p-r-pill);
+}
+
+.p-essentials-cta--title {
+  margin: 0 0 18px;
+  font-size: clamp(3.2rem, 1.8rem + 3.2vw, 6.2rem);
+  font-weight: 900;
+  font-stretch: 125%;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.p-essentials-cta--title span {
+  color: var(--p-red);
+}
+
+.p-essentials-cta--desc {
+  margin: 0 auto 34px;
+  max-width: 62ch;
+  font-size: clamp(1.5rem, 1.3rem + 0.4vw, 1.8rem);
+  line-height: 1.7;
+  color: var(--p-text-2);
+}
+
+.p-essentials-cta--buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.p-btn-map {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 14px 28px;
+  font-family: var(--p-font);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--p-line-2);
+  border-radius: var(--p-r-pill);
+  text-decoration: none;
+  transition: all var(--p-t) var(--p-ease);
+}
+
+.p-btn-map:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.p-essentials-cta--meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 1.35rem;
+  color: var(--p-text-3);
+}
+
+.p-essentials-cta--meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.p-essentials-cta--meta span strong {
+  color: var(--p-text);
+}
+
+/* --------------------------------------------------------------------------
+   07. RESPONSIVE REFINEMENTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+  .essentials-jump-nav {
+    top: 70px;
+  }
+  .p-specs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .essentials-jump-nav {
+    top: 60px;
+    padding: 10px 0;
+  }
+  .jump-pill {
+    padding: 7px 14px;
+    font-size: 1.15rem;
+  }
+  .p-card-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .p-card-actions .primary__btn,
+  .p-card-actions .p-btn-wa {
+    width: 100%;
+    justify-content: center;
+  }
+  .p-essentials-cta--buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .p-essentials-cta--buttons .primary__btn,
+  .p-essentials-cta--buttons .p-btn-map,
+  .p-essentials-cta--buttons .p-btn-wa {
+    width: 100%;
+  }
+}

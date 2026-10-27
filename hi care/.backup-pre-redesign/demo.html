@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Car Promo Banner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f5f5f7;
+      --brand:#f3a409;      /* warm orange */
+      --ink:#1b1b1f;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Poppins, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background:var(--bg);
+      color:var(--ink);
+      display:grid; place-items:center;
+    }
+    .wrap{
+      width:min(1100px, 92vw);
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:0 30px 60px rgba(0,0,0,.12), 0 8px 20px rgba(0,0,0,.06);
+      position:relative;
+      overflow:hidden;
+      isolation:isolate;
+    }
+
+    /* vertical brand strip */
+    .strip{position:absolute; inset:0; width:48%; background:var(--brand); margin-inline:auto; left:50%; transform:translateX(-50%); z-index:0}
+
+    .content{position:relative; z-index:1; padding:56px 56px 24px; display:grid; grid-template-columns:1.1fr 1fr; gap:24px; align-items:center}
+
+    .copy h1{font-weight:800; font-size:clamp(32px, 4.6vw, 64px); line-height:1.05; margin:0 0 6px}
+    .copy h1 .soft{font-weight:600}
+    .copy p{margin:12px 0 28px; color:#222; font-weight:600}
+    .copy .sub{color:var(--ink); opacity:.8; font-weight:500; max-width:44ch}
+
+    .cta{
+      display:flex; gap:12px; align-items:center; flex-wrap:wrap
+    }
+    .btn{
+      background:var(--ink); color:#fff; border:none; padding:14px 20px; border-radius:14px; font-weight:700; letter-spacing:.2px; cursor:pointer; transition:transform .12s ease, box-shadow .2s ease;
+      box-shadow:0 10px 20px rgba(27,27,31,.25);
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .ghost{background:transparent; color:var(--ink); border:2px solid var(--ink)}
+
+    /* Car figure */
+    .stage{position:relative; height:min(420px, 56vw); display:grid; place-items:end center}
+    .car{
+      width:min(640px, 70vw);
+      filter: drop-shadow(0 24px 40px rgba(0,0,0,.27));
+    }
+
+    /* Floating keycaps */
+    .keycap{--s:84px; position:absolute; width:var(--s); aspect-ratio:1/1; background:#111; border-radius:18px; box-shadow:inset 0 -6px 0 #000, 0 14px 24px rgba(0,0,0,.35); display:grid; place-items:center; transform:rotate(-14deg)}
+    .keycap.right{right:34px; bottom:56px; transform:rotate(12deg)}
+    .keycap.left{left:24px; top:34px}
+    .heart{width:52%; aspect-ratio:1; background: radial-gradient(circle at 30% 30%, #ffd56a, #d79700 60%, #735100); clip-path: path('M 50 15 C 35 -2, 0 8, 8 36 C 16 64, 50 86, 50 86 C 50 86, 84 64, 92 36 C 100 8, 65 -2, 50 15 Z');}
+
+    /* bottom bar */
+    .bar{display:flex; flex-wrap:wrap; gap:18px; align-items:center; justify-content:space-between; padding:18px 24px; border-top:1px dashed #e5e7eb; background:linear-gradient(#fff, #fafafa)}
+    .meta{font-size:14px; color:var(--muted)}
+    .contact{display:flex; gap:16px; align-items:center; font-weight:600}
+    .bubble{background:#111; color:#fff; border-radius:999px; padding:8px 14px}
+
+    @media (max-width: 900px){
+      .content{grid-template-columns:1fr; padding:36px 26px 0}
+      .strip{width:100%}
+      .stage{height:360px}
+      .keycap{display:none}
+      .bar{padding:16px 20px}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap" aria-label="Promotional car banner">
+    <div class="strip" aria-hidden="true"></div>
+
+    <section class="content">
+      <div class="copy">
+        <h1>
+          <span>Realize</span> <span class="soft">seu sonho!</span>
+        </h1>
+        <p class="sub">Agende um test drive e descubra a emoção de dirigir o carro dos seus sonhos.</p>
+        <div class="cta">
+          <button class="btn" id="book">Agendar Test Drive</button>
+          <button class="btn ghost" id="more">Saiba Mais</button>
+        </div>
+      </div>
+
+      <div class="stage">
+        <!-- Replace the inline SVG below with a transparent PNG of the exact model if you have one -->
+        <svg class="car" viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustrated compact SUV">
+          <defs>
+            <linearGradient id="paint" x1="0" x2="1">
+              <stop offset="0" stop-color="#ffb02e"/>
+              <stop offset="1" stop-color="#ff7a00"/>
+            </linearGradient>
+          </defs>
+          <!-- tires -->
+          <circle cx="210" cy="325" r="62" fill="#121212"/>
+          <circle cx="210" cy="325" r="32" fill="#2b2b2b"/>
+          <circle cx="690" cy="325" r="62" fill="#121212"/>
+          <circle cx="690" cy="325" r="32" fill="#2b2b2b"/>
+          <!-- body -->
+          <path d="M80 290 Q120 220 210 210 L520 185 Q620 175 680 215 L805 250 Q845 260 845 295 L845 320 L760 320 L720 310 L250 320 L120 320 L80 310 Z" fill="url(#paint)"/>
+          <!-- windows -->
+          <path d="M245 210 L505 195 Q560 190 610 210 L670 240 L330 240 Z" fill="#1f2a37"/>
+          <!-- lights -->
+          <ellipse cx="820" cy="280" rx="20" ry="12" fill="#fff1a6"/>
+          <rect x="105" y="275" width="40" height="16" rx="6" fill="#cbd5e1"/>
+          <!-- bumper and details -->
+          <rect x="760" y="300" width="70" height="12" rx="6" fill="#0f172a"/>
+          <rect x="140" y="302" width="70" height="12" rx="6" fill="#0f172a"/>
+        </svg>
+
+        <div class="keycap left" aria-hidden="true"><div class="heart"></div></div>
+        <div class="keycap right" aria-hidden="true"><div class="heart"></div></div>
+      </div>
+    </section>
+
+    <div class="bar">
+      <div class="meta">Av. Joaquim Batista, 258 — Porto Ferreira, São Paulo/SP</div>
+      <div class="contact">
+        <span class="bubble">Agende um TestDrive</span>
+        <span>📞 (11) 99999-9999</span>
+        <span>✉️ seusiteaqui.com.br</span>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const book = document.getElementById('book');
+    const more = document.getElementById('more');
+
+    book.addEventListener('click', () => {
+      alert('Obrigado! Entraremos em contato para confirmar seu test drive.');
+    });
+
+    more.addEventListener('click', () => {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
